@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --core-orange: #F5A623;
+  --core-gold: #F8B84E;
+  --core-light: #FDF4E3;
+  --core-dark: #1A1A1A;
+  --core-gray: #4A4A4A;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #1A1A1A;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--core-orange);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--core-gold);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--core-orange);
+  color: white;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-core-orange text-white px-6 py-3 rounded-lg font-semibold
+           hover:bg-core-gold transition-all duration-300
+           shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-core-orange text-core-orange px-6 py-3 rounded-lg font-semibold
+           hover:bg-core-orange hover:text-white transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-core-dark;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-core-gray mt-4 max-w-2xl;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
+  }
+}
