@@ -31,10 +31,10 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-core-orange/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-24 pb-12">
+      <div className="container mx-auto px-4 relative z-10 pt-20 pb-8">
         <div className="max-w-5xl mx-auto text-center">
           {/* Logo Grande */}
-          <div className="mb-4">
+          <div className="mb-2">
             <img
               src={logoHero}
               alt="Core Sistemas e Diagnóstica"
@@ -43,36 +43,36 @@ const Hero = () => {
           </div>
 
           {/* Slogan */}
-          <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-light mb-3 tracking-wide">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-light mb-2 tracking-wide">
             Rápido no atendimento. Forte na confiança.
           </p>
 
           {/* Description */}
-          <p className="text-sm md:text-base text-gray-400 mb-8 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-gray-400 mb-4 max-w-xl mx-auto leading-relaxed">
             {heroContent.description}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
             <a
               href="https://wa.me/5562981010074?text=Olá! Gostaria de falar com um especialista sobre as soluções da Core."
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-r from-core-orange to-core-gold text-white px-8 py-4 rounded-full font-semibold inline-flex items-center justify-center gap-3 transition-all duration-300 hover:shadow-xl hover:shadow-core-orange/30 hover:scale-105"
+              className="group bg-gradient-to-r from-core-orange to-core-gold text-white px-6 py-3 rounded-full font-semibold inline-flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-core-orange/30 hover:scale-105"
             >
-              <Phone size={20} />
+              <Phone size={18} />
               {heroContent.cta1}
             </a>
             <a
               href="/equipamentos"
-              className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold inline-flex items-center justify-center gap-2 transition-all duration-300 border border-white/30 hover:bg-white/20 hover:border-white/40"
+              className="bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-semibold inline-flex items-center justify-center gap-2 transition-all duration-300 border border-white/30 hover:bg-white/20 hover:border-white/40"
             >
               {heroContent.cta2}
             </a>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-xl mx-auto">
             {[
               { value: "24h", label: "Suporte Técnico" },
               { value: "200+", label: "Reagentes" },
@@ -80,12 +80,12 @@ const Hero = () => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/10 hover:border-core-orange/30 transition-all duration-300 hover:bg-white/10"
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-white/10 hover:border-core-orange/30 transition-all duration-300 hover:bg-white/10"
               >
-                <div className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-core-orange to-core-gold">
+                <div className="text-xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-core-orange to-core-gold">
                   {stat.value}
                 </div>
-                <div className="text-xs md:text-sm text-gray-400 mt-1">{stat.label}</div>
+                <div className="text-xs text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -93,14 +93,14 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
         <a
           href="#sobre"
-          className="flex flex-col items-center gap-2 text-white/50 hover:text-core-orange transition-colors group"
+          className="flex flex-col items-center gap-1 text-white/50 hover:text-core-orange transition-colors group"
         >
           <span className="text-xs font-medium uppercase tracking-widest">Explorar</span>
-          <div className="w-10 h-10 rounded-full border border-current flex items-center justify-center group-hover:border-core-orange transition-colors">
-            <ArrowDown size={18} className="animate-bounce" />
+          <div className="w-8 h-8 rounded-full border border-current flex items-center justify-center group-hover:border-core-orange transition-colors">
+            <ArrowDown size={14} className="animate-bounce" />
           </div>
         </a>
       </div>
