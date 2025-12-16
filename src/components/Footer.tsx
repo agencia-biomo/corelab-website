@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { companyInfo } from "../data/content";
-import logo from "../assets/logos/logo-main.png";
+import logo from "../assets/logos/logo-hero.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <img src={logo} alt="Core Sistemas" className="h-12 mb-6 brightness-0 invert" />
+            <img src={logo} alt="Core Sistemas" className="h-16 mb-6" />
             <p className="text-gray-400 mb-6">
               Soluções completas em automação laboratorial com o suporte técnico
               mais rápido e a assessoria científica que seu laboratório precisa.

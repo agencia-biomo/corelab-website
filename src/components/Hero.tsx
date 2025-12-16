@@ -38,7 +38,7 @@ const Hero = () => {
             <img
               src={logoHero}
               alt="Core Sistemas e Diagnóstica"
-              className="h-52 md:h-72 lg:h-96 xl:h-[28rem] mx-auto drop-shadow-2xl"
+              className="h-40 md:h-56 lg:h-72 xl:h-[21rem] mx-auto drop-shadow-2xl"
             />
           </div>
 
