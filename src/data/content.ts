@@ -89,35 +89,42 @@ export const services = [
 export const products = [
   {
     id: 1,
-    name: "Selectra PRO M",
-    brand: "Vital Scientific",
-    category: "Bioquímica",
-    description:
-      "Analisador bioquímico de alta performance para laboratórios de médio e grande porte.",
-    image: "/src/assets/images/selectra.jpg",
-    featured: true,
-  },
-  {
-    id: 2,
-    name: "Diestro 103AP V3",
-    brand: "Diestro",
-    category: "Bioquímica",
-    description:
-      "Analisador compacto ideal para laboratórios que buscam eficiência com custo-benefício.",
-    image: "/src/assets/images/equipamento-2.jpg",
-    featured: true,
-  },
-  {
-    id: 3,
     name: "VIDA S3800",
     brand: "Vida Biotecnologia",
     category: "Bioquímica",
     description:
-      "Solução nacional com qualidade internacional para análises bioquímicas.",
-    image: "/src/assets/images/reagentes.png",
+      "Analisador bioquímico de alta performance com tecnologia nacional. Ideal para laboratórios de médio porte que buscam qualidade e custo-benefício.",
+    image: "/src/assets/images/vida-s3800.jpg",
+    featured: true,
+  },
+  {
+    id: 2,
+    name: "VIDA S4800",
+    brand: "Vida Biotecnologia",
+    category: "Bioquímica",
+    description:
+      "Analisador de grande porte com alta capacidade de processamento para laboratórios com grande volume de análises.",
+    image: "/src/assets/images/vida-s4800.jpg",
+    featured: true,
+  },
+  {
+    id: 3,
+    name: "Selectra PRO M",
+    brand: "Vital Scientific",
+    category: "Bioquímica",
+    description:
+      "Analisador bioquímico compacto com tela touchscreen, ideal para laboratórios que buscam eficiência e modernidade.",
+    image: "/src/assets/images/equipamento-principal.jpg",
     featured: true,
   },
 ];
+
+export const reagents = {
+  title: "Reagentes de Alta Qualidade",
+  description: "Mais de 200 tipos de reagentes para todas as necessidades do seu laboratório.",
+  brands: ["Vida Biotecnologia", "Vital Scientific", "Dailytech"],
+  image: "/src/assets/images/reagentes-vida.jpg",
+};
 
 export const brands = [
   "Vital Scientific",

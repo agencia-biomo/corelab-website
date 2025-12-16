@@ -1,5 +1,7 @@
 import { Award, Lightbulb, Shield, Eye, Users, Handshake } from "lucide-react";
 import { aboutContent } from "../data/content";
+import labCentrifuga from "../assets/images/lab-centrifuga.png";
+import brandingCore from "../assets/images/branding-core.jpg";
 
 const iconMap: Record<string, React.ElementType> = {
   Award,
@@ -12,87 +14,110 @@ const iconMap: Record<string, React.ElementType> = {
 
 const About = () => {
   return (
-    <section id="sobre" className="py-20 bg-white">
+    <section id="sobre" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-core-orange font-semibold text-sm uppercase tracking-wider">
+        <div className="text-center mb-20">
+          <span className="inline-block text-core-orange font-semibold text-sm uppercase tracking-wider bg-core-orange/10 px-4 py-2 rounded-full mb-4">
             Sobre Nós
           </span>
-          <h2 className="section-title mt-2">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-core-dark">
             Mais de <span className="text-core-orange">20 anos</span> de
-            confiança e inovação
+            <br className="hidden md:block" /> confiança e inovação
           </h2>
         </div>
 
-        {/* Story */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <h3 className="text-2xl font-bold text-core-dark mb-6">
+        {/* Story with images */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+          <div className="order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 text-core-orange font-semibold mb-4">
+              <div className="w-12 h-0.5 bg-core-orange" />
+              Nossa História
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-core-dark mb-6">
               {aboutContent.title}
             </h3>
             {aboutContent.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-core-gray mb-4">
+              <p key={index} className="text-lg text-core-gray mb-4 leading-relaxed">
                 {paragraph}
               </p>
             ))}
 
+            {/* Slogan */}
+            <div className="mt-8 p-6 bg-gradient-to-r from-core-orange to-core-gold rounded-2xl text-white">
+              <p className="text-xl font-bold italic">
+                "Rápido no atendimento. Forte na confiança."
+              </p>
+            </div>
+
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-3 gap-6 mt-10">
               {[
                 { value: "2002", label: "Fundação" },
                 { value: "200+", label: "Reagentes" },
                 { value: "6", label: "Estados" },
               ].map((stat, index) => (
-                <div key={index} className="text-center">
+                <div key={index} className="text-center p-4 bg-gray-50 rounded-xl">
                   <div className="text-3xl font-bold text-core-orange">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-core-gray">{stat.label}</div>
+                  <div className="text-sm text-core-gray font-medium">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative">
-            <div className="bg-gradient-to-br from-core-orange/10 to-core-gold/10 rounded-3xl p-8">
+          <div className="order-1 lg:order-2 relative">
+            {/* Main image */}
+            <div className="relative z-10">
               <img
-                src="/src/assets/images/equipamento-2.jpg"
-                alt="Equipamento Core"
-                className="rounded-2xl shadow-lg w-full"
+                src={labCentrifuga}
+                alt="Técnico trabalhando no laboratório"
+                className="rounded-3xl shadow-2xl w-full"
               />
             </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-core-orange rounded-2xl -z-10" />
+
+            {/* Secondary image - floating */}
+            <div className="absolute -bottom-8 -left-8 w-48 h-48 z-20 hidden md:block">
+              <img
+                src={brandingCore}
+                alt="Branding Core"
+                className="w-full h-full object-cover rounded-2xl shadow-xl border-4 border-white"
+              />
+            </div>
+
+            {/* Decorative elements */}
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-core-orange/20 rounded-2xl -z-10" />
+            <div className="absolute -bottom-6 right-12 w-24 h-24 bg-core-gold/20 rounded-full -z-10" />
           </div>
         </div>
 
         {/* Mission & Vision */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <div className="w-12 h-12 rounded-xl bg-core-orange flex items-center justify-center mb-4">
-              <Award className="text-white" size={24} />
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 md:p-10 hover:shadow-lg transition-shadow">
+            <div className="w-14 h-14 rounded-2xl bg-core-orange flex items-center justify-center mb-6">
+              <Award className="text-white" size={28} />
             </div>
-            <h4 className="text-xl font-bold text-core-dark mb-4">
+            <h4 className="text-2xl font-bold text-core-dark mb-4">
               Nossa Missão
             </h4>
-            <p className="text-core-gray">{aboutContent.mission}</p>
+            <p className="text-core-gray text-lg leading-relaxed">{aboutContent.mission}</p>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <div className="w-12 h-12 rounded-xl bg-core-gold flex items-center justify-center mb-4">
-              <Lightbulb className="text-white" size={24} />
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 md:p-10 hover:shadow-lg transition-shadow">
+            <div className="w-14 h-14 rounded-2xl bg-core-gold flex items-center justify-center mb-6">
+              <Lightbulb className="text-white" size={28} />
             </div>
-            <h4 className="text-xl font-bold text-core-dark mb-4">
+            <h4 className="text-2xl font-bold text-core-dark mb-4">
               Nossa Visão
             </h4>
-            <p className="text-core-gray">{aboutContent.vision}</p>
+            <p className="text-core-gray text-lg leading-relaxed">{aboutContent.vision}</p>
           </div>
         </div>
 
         {/* Values */}
-        <div>
-          <h3 className="text-2xl font-bold text-core-dark text-center mb-10">
+        <div className="bg-core-dark rounded-3xl p-8 md:p-12">
+          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
             Nossos Valores
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -103,13 +128,13 @@ const About = () => {
                   key={index}
                   className="text-center group cursor-default"
                 >
-                  <div className="w-16 h-16 mx-auto rounded-2xl bg-core-orange/10 flex items-center justify-center mb-4 group-hover:bg-core-orange transition-colors">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-core-orange transition-colors duration-300">
                     <Icon
                       size={28}
-                      className="text-core-orange group-hover:text-white transition-colors"
+                      className="text-core-orange group-hover:text-white transition-colors duration-300"
                     />
                   </div>
-                  <p className="text-sm font-medium text-core-dark">
+                  <p className="text-sm font-medium text-white/90">
                     {value.title}
                   </p>
                 </div>
