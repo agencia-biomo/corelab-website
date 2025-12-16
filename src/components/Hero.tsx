@@ -1,7 +1,7 @@
 import { Phone, ArrowDown } from "lucide-react";
 import { heroContent } from "../data/content";
 import heroVideo from "../assets/videos/hero-video.mp4";
-import logoHero from "../assets/logos/logo-header.png";
+import logoHero from "../assets/logos/logo-hero.png";
 
 const Hero = () => {
   return (
