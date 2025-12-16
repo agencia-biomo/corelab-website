@@ -35,11 +35,11 @@ const Services = () => {
             return (
               <div
                 key={service.id}
-                className={`bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group hover:-translate-y-2 ${
-                  index === 1 ? "lg:scale-105 lg:z-10 border-2 border-core-orange/20" : ""
+                className={`bg-white rounded-[1.75rem] p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group hover:-translate-y-3 ${
+                  index === 1 ? "lg:scale-105 lg:z-10 border-2 border-core-orange/30 shadow-core-orange/10" : ""
                 }`}
               >
-                <div className="w-16 h-16 rounded-2xl bg-core-orange/10 flex items-center justify-center mb-6 group-hover:bg-core-orange group-hover:scale-110 transition-all duration-300">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-core-orange/10 to-core-gold/10 flex items-center justify-center mb-6 group-hover:from-core-orange group-hover:to-core-gold group-hover:scale-110 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-core-orange/20">
                   <Icon
                     size={32}
                     className="text-core-orange group-hover:text-white transition-colors"
@@ -55,7 +55,9 @@ const Services = () => {
         </div>
 
         {/* Featured Service - Scientific Advisory */}
-        <div className="bg-gradient-to-br from-core-orange via-core-orange to-core-gold rounded-3xl overflow-hidden">
+        <div className="bg-gradient-to-br from-core-orange via-core-orange to-core-gold rounded-[2.5rem] overflow-hidden relative">
+          {/* Decorative */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
           <div className="grid lg:grid-cols-2 gap-0">
             <div className="p-8 md:p-12 lg:p-16 text-white">
               <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -116,9 +118,11 @@ const Services = () => {
             { value: "+20", label: "Anos no Mercado", icon: Shield },
             { value: "6+", label: "Estados Atendidos", icon: Building },
           ].map((stat, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow">
-              <stat.icon className="w-8 h-8 text-core-orange mx-auto mb-3" />
-              <div className="text-2xl md:text-3xl font-bold text-core-dark">{stat.value}</div>
+            <div key={index} className="bg-white rounded-[1.5rem] p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-core-orange/10 to-core-gold/10 flex items-center justify-center group-hover:from-core-orange group-hover:to-core-gold transition-all duration-300">
+                <stat.icon className="w-6 h-6 text-core-orange group-hover:text-white transition-colors" />
+              </div>
+              <div className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-core-orange to-core-gold">{stat.value}</div>
               <div className="text-sm text-core-gray">{stat.label}</div>
             </div>
           ))}

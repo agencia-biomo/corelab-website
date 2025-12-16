@@ -94,8 +94,8 @@ const About = () => {
 
         {/* Mission & Vision */}
         <div className="grid md:grid-cols-2 gap-8 mb-20">
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 md:p-10 hover:shadow-lg transition-shadow">
-            <div className="w-14 h-14 rounded-2xl bg-core-orange flex items-center justify-center mb-6">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-[2rem] p-8 md:p-10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-core-orange to-core-gold flex items-center justify-center mb-6 shadow-lg shadow-core-orange/20">
               <Award className="text-white" size={28} />
             </div>
             <h4 className="text-2xl font-bold text-core-dark mb-4">
@@ -104,8 +104,8 @@ const About = () => {
             <p className="text-core-gray text-lg leading-relaxed">{aboutContent.mission}</p>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 md:p-10 hover:shadow-lg transition-shadow">
-            <div className="w-14 h-14 rounded-2xl bg-core-gold flex items-center justify-center mb-6">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-[2rem] p-8 md:p-10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-core-gold to-core-orange flex items-center justify-center mb-6 shadow-lg shadow-core-gold/20">
               <Lightbulb className="text-white" size={28} />
             </div>
             <h4 className="text-2xl font-bold text-core-dark mb-4">
@@ -116,11 +116,15 @@ const About = () => {
         </div>
 
         {/* Values */}
-        <div className="bg-core-dark rounded-3xl p-8 md:p-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
+        <div className="bg-gradient-to-br from-core-dark to-[#1a1a2e] rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-core-orange/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-core-gold/10 rounded-full blur-3xl" />
+
+          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12 relative z-10">
             Nossos Valores
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative z-10">
             {aboutContent.values.map((value, index) => {
               const Icon = iconMap[value.icon];
               return (
@@ -128,13 +132,13 @@ const About = () => {
                   key={index}
                   className="text-center group cursor-default"
                 >
-                  <div className="w-16 h-16 mx-auto rounded-2xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-core-orange transition-colors duration-300">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center mb-4 group-hover:bg-gradient-to-br group-hover:from-core-orange group-hover:to-core-gold group-hover:border-transparent transition-all duration-300 group-hover:scale-110">
                     <Icon
                       size={28}
                       className="text-core-orange group-hover:text-white transition-colors duration-300"
                     />
                   </div>
-                  <p className="text-sm font-medium text-white/90">
+                  <p className="text-sm font-medium text-white/80 group-hover:text-white transition-colors">
                     {value.title}
                   </p>
                 </div>

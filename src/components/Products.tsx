@@ -45,7 +45,7 @@ const Products = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100"
+              className="group bg-white rounded-[2rem] shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2"
             >
               <div className="relative h-72 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
                 <img
@@ -54,12 +54,12 @@ const Products = () => {
                   className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-core-orange text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg">
+                  <span className="bg-gradient-to-r from-core-orange to-core-gold text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg">
                     {product.category}
                   </span>
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-8">
                 <div className="text-sm text-core-orange font-semibold mb-2 uppercase tracking-wide">
                   {product.brand}
                 </div>
@@ -71,7 +71,7 @@ const Products = () => {
                   href={`https://wa.me/5562981010074?text=Olá! Gostaria de mais informações sobre o equipamento ${product.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-core-orange/10 text-core-orange px-5 py-2.5 rounded-xl font-semibold hover:bg-core-orange hover:text-white transition-all duration-300 group/btn"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-core-orange/10 to-core-gold/10 text-core-orange px-6 py-3 rounded-full font-semibold hover:from-core-orange hover:to-core-gold hover:text-white transition-all duration-300 group/btn"
                 >
                   Solicitar Orçamento
                   <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -82,7 +82,9 @@ const Products = () => {
         </div>
 
         {/* Reagents Section */}
-        <div className="bg-gradient-to-br from-core-dark to-core-gray rounded-3xl overflow-hidden mb-20">
+        <div className="bg-gradient-to-br from-core-dark via-[#1a1a2e] to-core-dark rounded-[2.5rem] overflow-hidden mb-20 relative">
+          {/* Background decoration */}
+          <div className="absolute top-0 left-0 w-64 h-64 bg-core-orange/10 rounded-full blur-3xl" />
           <div className="grid lg:grid-cols-2 gap-0">
             <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
               <div className="inline-flex items-center gap-2 text-core-orange font-semibold mb-4">
@@ -126,7 +128,7 @@ const Products = () => {
         </div>
 
         {/* Equipment Detail Image */}
-        <div className="relative rounded-3xl overflow-hidden mb-20 h-64 md:h-80">
+        <div className="relative rounded-[2rem] overflow-hidden mb-20 h-64 md:h-80">
           <img
             src={equipamentoInterno}
             alt="Detalhes dos equipamentos"
@@ -146,7 +148,7 @@ const Products = () => {
         </div>
 
         {/* Business Models */}
-        <div className="bg-gray-50 rounded-3xl p-8 md:p-12">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-[2.5rem] p-8 md:p-12">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-core-dark">
               Flexibilidade para seu Laboratório
@@ -161,9 +163,9 @@ const Products = () => {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 group hover:-translate-y-2"
+                  className="bg-white rounded-[1.5rem] p-8 text-center hover:shadow-2xl transition-all duration-300 group hover:-translate-y-3"
                 >
-                  <div className="w-20 h-20 mx-auto rounded-2xl bg-core-orange/10 flex items-center justify-center mb-6 group-hover:bg-core-orange transition-colors duration-300">
+                  <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-core-orange/10 to-core-gold/10 flex items-center justify-center mb-6 group-hover:from-core-orange group-hover:to-core-gold transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-core-orange/20">
                     <Icon size={36} className="text-core-orange group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h4 className="text-xl font-bold text-core-dark mb-4">

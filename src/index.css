@@ -57,26 +57,25 @@ html {
 
 /* Button styles */
 .btn-primary {
-  background-color: var(--core-orange);
+  background: linear-gradient(135deg, var(--core-orange), var(--core-gold));
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
   font-weight: 600;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  box-shadow: 0 10px 25px -5px rgba(245, 166, 35, 0.4);
   transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--core-gold);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 35px -5px rgba(245, 166, 35, 0.5);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .btn-secondary {
   border: 2px solid var(--core-orange);
   color: var(--core-orange);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
   font-weight: 600;
   transition: all 0.3s ease;
   background: transparent;
@@ -88,14 +87,20 @@ html {
 }
 
 .section-title {
-  font-size: 1.875rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--core-dark);
 }
 
 @media (min-width: 768px) {
   .section-title {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 3rem;
   }
 }
 
@@ -108,12 +113,28 @@ html {
 
 .card {
   background-color: white;
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  padding: 1.5rem;
-  transition: box-shadow 0.3s ease;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 40px -10px rgb(0 0 0 / 0.1);
+  padding: 2rem;
+  transition: all 0.4s ease;
 }
 
 .card:hover {
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+  transform: translateY(-4px);
+}
+
+/* Glass effect utility */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--core-orange), var(--core-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
