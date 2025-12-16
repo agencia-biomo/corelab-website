@@ -1,6 +1,7 @@
-import { Phone, ArrowDown, Sparkles } from "lucide-react";
+import { Phone, ArrowDown } from "lucide-react";
 import { heroContent } from "../data/content";
 import heroVideo from "../assets/videos/hero-video.mp4";
+import logoHero from "../assets/logos/logo-header.png";
 
 const Hero = () => {
   return (
@@ -20,33 +21,34 @@ const Hero = () => {
           <source src={heroVideo} type="video/mp4" />
         </video>
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-core-dark/90 via-core-dark/80 to-core-dark/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-core-dark/85 via-core-dark/75 to-core-dark/90" />
       </div>
 
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-core-orange/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-core-gold/15 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-core-orange/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-core-gold/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-core-orange/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-24 pb-12">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-core-orange px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-white/20">
-            <Sparkles size={16} className="animate-pulse" />
-            +20 anos de inovação no mercado
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Logo Grande */}
+          <div className="mb-10">
+            <img
+              src={logoHero}
+              alt="Core Sistemas e Diagnóstica"
+              className="h-32 md:h-40 lg:h-52 mx-auto drop-shadow-2xl"
+            />
           </div>
 
-          {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
-            Soluções em
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-core-orange to-core-gold">
-              Automação Laboratorial
-            </span>
-          </h1>
+          {/* Slogan */}
+          <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-light mb-4 tracking-wide">
+            Rápido no atendimento. Forte na confiança.
+          </p>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             {heroContent.description}
           </p>
 
@@ -70,7 +72,7 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-xl mx-auto">
+          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto">
             {[
               { value: "24h", label: "Suporte Técnico" },
               { value: "200+", label: "Reagentes" },
@@ -78,7 +80,7 @@ const Hero = () => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/10 hover:border-core-orange/30 transition-colors"
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/10 hover:border-core-orange/30 transition-all duration-300 hover:bg-white/10"
               >
                 <div className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-core-orange to-core-gold">
                   {stat.value}
