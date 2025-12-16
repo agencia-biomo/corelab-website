@@ -49,7 +49,7 @@ const Header = () => {
               src={logo}
               alt="Core Sistemas e Diagnóstica"
               className={`transition-all duration-300 ${
-                isScrolled ? "h-10 md:h-12" : "h-12 md:h-14"
+                isScrolled ? "h-14 md:h-16" : "h-16 md:h-20"
               }`}
             />
           </Link>
