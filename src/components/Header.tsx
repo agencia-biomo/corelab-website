@@ -37,25 +37,23 @@ const Header = () => {
     <header
       className={`fixed w-full z-50 transition-all duration-500 ${
         shouldBeTransparent
-          ? "bg-transparent py-4"
+          ? "bg-transparent py-3"
           : "bg-white/95 backdrop-blur-lg shadow-lg py-2"
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
+        <div className="flex items-center justify-between lg:justify-center relative">
+          {/* Logo - Absolute on desktop for true center nav */}
+          <Link to="/" className="flex items-center lg:absolute lg:left-4">
             <img
               src={logo}
               alt="Core Sistemas e Diagnóstica"
-              className={`transition-all duration-300 ${
-                isScrolled ? "h-16 md:h-20" : "h-20 md:h-24"
-              }`}
+              className="h-12 md:h-14 lg:h-16 transition-all duration-300"
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden lg:flex items-center justify-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -68,7 +66,7 @@ const Header = () => {
               >
                 {link.name}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-core-orange transition-all duration-300 rounded-full ${
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-core-orange to-core-gold transition-all duration-300 rounded-full ${
                     isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                 />
@@ -76,20 +74,19 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button - Absolute on desktop */}
           <a
             href="https://wa.me/5562981010074?text=Olá! Gostaria de falar com um especialista sobre as soluções da Core."
             target="_blank"
             rel="noopener noreferrer"
-            className={`hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+            className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold transition-all duration-300 lg:absolute lg:right-4 text-sm ${
               shouldBeTransparent
                 ? "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm"
-                : "bg-core-orange text-white hover:bg-core-gold shadow-lg shadow-core-orange/20"
+                : "bg-gradient-to-r from-core-orange to-core-gold text-white hover:shadow-lg hover:shadow-core-orange/25 hover:scale-105"
             }`}
           >
-            <Phone size={18} />
-            <span className="hidden xl:inline">Falar com Especialista</span>
-            <span className="xl:hidden">Contato</span>
+            <Phone size={16} />
+            <span>Fale Conosco</span>
           </a>
 
           {/* Mobile menu button */}
@@ -99,7 +96,7 @@ const Header = () => {
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
@@ -112,16 +109,16 @@ const Header = () => {
             : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="bg-white/95 backdrop-blur-lg shadow-xl mx-4 mt-2 rounded-3xl overflow-hidden">
-          <nav className="flex flex-col p-6 gap-2">
+        <div className="bg-white/95 backdrop-blur-lg shadow-xl mx-4 mt-2 rounded-2xl overflow-hidden border border-gray-100">
+          <nav className="flex flex-col p-4 gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className={`font-medium py-3 px-4 rounded-2xl transition-all ${
+                className={`font-medium py-3 px-4 rounded-xl transition-all ${
                   isActive(link.href)
-                    ? "bg-core-orange/10 text-core-orange"
-                    : "text-core-dark hover:bg-core-orange/10 hover:text-core-orange"
+                    ? "bg-gradient-to-r from-core-orange to-core-gold text-white"
+                    : "text-core-dark hover:bg-gray-50"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -132,8 +129,9 @@ const Header = () => {
               href="https://wa.me/5562981010074"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-core-orange text-white text-center py-4 px-6 rounded-2xl font-semibold mt-4 hover:bg-core-gold transition-colors"
+              className="bg-gradient-to-r from-core-orange to-core-gold text-white text-center py-3 px-6 rounded-xl font-semibold mt-3 flex items-center justify-center gap-2"
             >
+              <Phone size={18} />
               Falar com Especialista
             </a>
           </nav>
