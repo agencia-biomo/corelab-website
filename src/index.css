@@ -1,8 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  --color-core-orange: #F5A623;
+  --color-core-gold: #F8B84E;
+  --color-core-light: #FDF4E3;
+  --color-core-dark: #1A1A1A;
+  --color-core-gray: #4A4A4A;
+}
 
 :root {
   --core-orange: #F5A623;
@@ -50,27 +55,65 @@ html {
   color: white;
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-core-orange text-white px-6 py-3 rounded-lg font-semibold
-           hover:bg-core-gold transition-all duration-300
-           shadow-lg hover:shadow-xl hover:-translate-y-0.5;
-  }
+/* Button styles */
+.btn-primary {
+  background-color: var(--core-orange);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease;
+}
 
-  .btn-secondary {
-    @apply border-2 border-core-orange text-core-orange px-6 py-3 rounded-lg font-semibold
-           hover:bg-core-orange hover:text-white transition-all duration-300;
-  }
+.btn-primary:hover {
+  background-color: var(--core-gold);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  transform: translateY(-2px);
+}
 
+.btn-secondary {
+  border: 2px solid var(--core-orange);
+  color: var(--core-orange);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: var(--core-orange);
+  color: white;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--core-dark);
+}
+
+@media (min-width: 768px) {
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-core-dark;
+    font-size: 2.25rem;
   }
+}
 
-  .section-subtitle {
-    @apply text-lg text-core-gray mt-4 max-w-2xl;
-  }
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--core-gray);
+  margin-top: 1rem;
+  max-width: 42rem;
+}
 
-  .card {
-    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
-  }
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
 }
