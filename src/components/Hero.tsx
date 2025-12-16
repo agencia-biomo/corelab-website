@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10 pt-24 pb-12">
         <div className="max-w-5xl mx-auto text-center">
           {/* Logo Grande */}
-          <div className="mb-10">
+          <div className="mb-4">
             <img
               src={logoHero}
               alt="Core Sistemas e Diagnóstica"
@@ -43,17 +43,17 @@ const Hero = () => {
           </div>
 
           {/* Slogan */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-light mb-4 tracking-wide">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-light mb-3 tracking-wide">
             Rápido no atendimento. Forte na confiança.
           </p>
 
           {/* Description */}
-          <p className="text-base md:text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-gray-400 mb-8 max-w-xl mx-auto leading-relaxed">
             {heroContent.description}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
               href="https://wa.me/5562981010074?text=Olá! Gostaria de falar com um especialista sobre as soluções da Core."
               target="_blank"
