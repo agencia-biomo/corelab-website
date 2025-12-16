@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import logo from "../assets/logos/logo-main.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,25 +19,32 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Sobre", href: "#sobre" },
-    { name: "Equipamentos", href: "#equipamentos" },
-    { name: "Serviços", href: "#servicos" },
-    { name: "Contato", href: "#contato" },
+    { name: "Home", href: "/" },
+    { name: "Sobre", href: "/sobre" },
+    { name: "Equipamentos", href: "/equipamentos" },
+    { name: "Serviços", href: "/servicos" },
+    { name: "Contato", href: "/contato" },
   ];
+
+  const isActive = (href: string) => {
+    return location.pathname === href;
+  };
+
+  // Determine header style based on page and scroll
+  const shouldBeTransparent = isHomePage && !isScrolled;
 
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-lg shadow-lg py-2"
-          : "bg-transparent py-4"
+        shouldBeTransparent
+          ? "bg-transparent py-4"
+          : "bg-white/95 backdrop-blur-lg shadow-lg py-2"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a href="#home" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
               src={logo}
               alt="Core Sistemas e Diagnóstica"
@@ -41,23 +52,27 @@ const Header = () => {
                 isScrolled ? "h-10 md:h-12" : "h-12 md:h-14"
               }`}
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className={`font-medium transition-all duration-300 relative group ${
-                  isScrolled
-                    ? "text-core-dark hover:text-core-orange"
-                    : "text-white/90 hover:text-white"
-                }`}
+                  shouldBeTransparent
+                    ? "text-white/90 hover:text-white"
+                    : "text-core-dark hover:text-core-orange"
+                } ${isActive(link.href) ? (shouldBeTransparent ? "text-white" : "text-core-orange") : ""}`}
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-core-orange transition-all duration-300 group-hover:w-full rounded-full" />
-              </a>
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-core-orange transition-all duration-300 rounded-full ${
+                    isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
             ))}
           </nav>
 
@@ -67,9 +82,9 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={`hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-              isScrolled
-                ? "bg-core-orange text-white hover:bg-core-gold shadow-lg shadow-core-orange/20"
-                : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm"
+              shouldBeTransparent
+                ? "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm"
+                : "bg-core-orange text-white hover:bg-core-gold shadow-lg shadow-core-orange/20"
             }`}
           >
             <Phone size={18} />
@@ -80,7 +95,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             className={`lg:hidden p-2 rounded-xl transition-colors ${
-              isScrolled ? "text-core-dark" : "text-white"
+              shouldBeTransparent ? "text-white" : "text-core-dark"
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -100,14 +115,18 @@ const Header = () => {
         <div className="bg-white/95 backdrop-blur-lg shadow-xl mx-4 mt-2 rounded-3xl overflow-hidden">
           <nav className="flex flex-col p-6 gap-2">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-core-dark font-medium py-3 px-4 hover:bg-core-orange/10 hover:text-core-orange rounded-2xl transition-all"
+                to={link.href}
+                className={`font-medium py-3 px-4 rounded-2xl transition-all ${
+                  isActive(link.href)
+                    ? "bg-core-orange/10 text-core-orange"
+                    : "text-core-dark hover:bg-core-orange/10 hover:text-core-orange"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <a
               href="https://wa.me/5562981010074"
